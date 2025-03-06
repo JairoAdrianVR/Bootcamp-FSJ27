@@ -5,25 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eirbianbi Proyecto</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">  
 </head>
 <body >
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar navbar-expand-lg  fixed-top shadow-sm">
+        <div class="container">
+          <a class="navbar-brand text-danger fw-bold" href="#">Eirbianbi</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
+                <a class="nav-link" href="#">Explorar</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
+                <a class="nav-link" href="#">Iniciar sesion</a>
               </li>
             </ul>
           </div>
@@ -31,30 +32,117 @@
       </nav>
 
         <!-- Section SearchBar -->
-      <section class="container mt-4 ">
-        <article class="bg-white p-3 d-flex rounded ">
-            <input type="text" class="form-control m-2" placeholder="Destino">
+      <section class="container" style="margin-top: 5rem;">
+        <article class="bg-white row p-3 rounded shadow-sm ">
+          <div class="col-lg-3 col-sm-6">
+           <input type="text" class="form-control m-2" placeholder="Destino">
+          </div>
+          <div class="col-lg-3 col-sm-6">
             <input type="date" class="form-control m-2">
+          </div>
+          <div class="col-lg-3 col-sm-6">
             <input type="date" class="form-control m-2">
+          </div>
+          <div class="col-lg-3 col-sm-6">
             <input type="text" class="form-control m-2" placeholder="Huespedes">
-            <button class="btn btn-danger m-2"> Buscar</button>
+          </div>
+            <button class="btn btn-danger m-2 ">Buscar</button>
         </article>
     </section>
 
 
     <!-- Section Cards-->
-     <section class="container mt-4">
-        <article>
-            <div class="card" style="width: 18rem;">
-                <img src="https://images.adsttc.com/media/images/5a58/a7ca/f197/cc1f/8600/0182/newsletter/S3_CDS-5766.jpg?1515759553" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Casa en la playa</h5>
-                  <p class="card-text">$200 USD / noche</p>
-                  <p class="card-text"><small class="text-muted">4.8 ★</small></p>
-                  <a href="#" class="btn btn-primary">Alquilar</a>
-                </div>
+    <section class="container mt-4 mb-4">
+      <article class="row">
+          <div class="col-lg-4 col-md-4 col-sm-12">
+          <div class="card" >
+              <img src="https://images.adsttc.com/media/images/5a58/a7ca/f197/cc1f/8600/0182/newsletter/S3_CDS-5766.jpg?1515759553" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Casa en la playa</h5>
+                <p class="card-text">$200 USD / noche</p>
+                <p class="card-text"><small class="text-muted">4.8 ★</small></p>
+                <a href="#" class="btn btn-primary">Alquilar</a>
               </div>
-        </article>
-     </section>
+            </div>
+          </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="card " >
+              <img src="https://hips.hearstapps.com/hmg-prod/images/caban-a-disen-o-actual-1535369712.jpg" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title">Cabaña en la montaña</h5>
+                <p class="card-text">$150 USD / noche</p>
+                <p class="card-text"><small class="text-muted">4.9 ★</small></p>
+                <a href="#" class="btn btn-primary">Alquilar</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="card">
+              <img src="https://apartamentos-centrojardines.com/wp-content/uploads/Apartamentos-Centro-Jardines-en-el-centro-de-Madrid.webp" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title">Apartamento centrico</h5>
+                <p class="card-text">$120 USD / noche</p>
+                <p class="card-text"><small class="text-muted">4.7 ★</small></p>
+                <a href="#" class="btn btn-primary">Alquilar</a>
+              </div>
+            </div>
+          </div>
+      </article>
+   </section>
+
+      <!-- Section Footer -->
+     <footer class="bg-light fixed-bottom pt-4">
+        <section class="container">
+          <article class="d-flex justify-content-between">
+            <div>
+              <h6>Asistencia</h6>
+              <ul class="list-unstyled">
+                <li><a href="#">Centro de ayuda</a></li>
+                <li><a href="#">Antidiscriminacion</a></li>
+                <li><a href="#">Apoyo para discapacitados</a></li>
+                <li><a href="#">Opciones de cancelacion</a></li>
+                <li><a href="#">Problemas en la zona</a></li>
+              </ul>
+            </div>
+              
+            <div>
+              <h6>Asistencia</h6>
+              <ul class="list-unstyled">
+                <li><a href="#">Centro de ayuda</a></li>
+                <li><a href="#">Antidiscriminacion</a></li>
+                <li><a href="#">Apoyo para discapacitados</a></li>
+                <li><a href="#">Opciones de cancelacion</a></li>
+                <li><a href="#">Problemas en la zona</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h6>Asistencia</h6>
+              <ul class="list-unstyled">
+                <li><a href="#">Centro de ayuda</a></li>
+                <li><a href="#">Antidiscriminacion</a></li>
+                <li><a href="#">Apoyo para discapacitados</a></li>
+                <li><a href="#">Opciones de cancelacion</a></li>
+                <li><a href="#">Problemas en la zona</a></li>
+              </ul>
+            </div>
+          </article>
+          <article class="text-center">
+            <p>© 2025 Eirbianbi, Inc. <a href="#">Privacidad</a> - <a href="#">Terminos</a> - <a href="#">Mapa del sitio</a></p>
+            <p>
+              <a href="#">Español</a> |
+              <a href="#">USD</a> |
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-twitter-x"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+            </p>
+          
+          </article>
+
+        </section>
+
+     </footer>
 </body>
 </html>
