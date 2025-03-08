@@ -120,3 +120,82 @@ for(let contador = 0; contador < 5; contador++){
     console.log(contador);
     console.log("Estoy girando, soy un dado Wiii");   
 }
+
+//Funciones 
+
+//Declaraion de funcion 
+// Funcion tipo Void
+function saludar(){
+    console.log("Hola soy una funcion");
+}
+
+//Funcion tipo Return
+
+function login(){
+    return "Bienvenido";
+}
+
+//Invocar o llamar a una funcion
+saludar();
+
+let resultado = saludar();
+let resulta2 = login();
+console.log(resultado);
+console.log(resulta2);
+
+
+//Parametros -> Datos que recibe una funcion
+function sumarDosNumeros(num1,num2){
+    console.log(num1+num2);
+    
+    return num1+num2;
+}
+
+let suma = sumarDosNumeros(5,5);
+let suma2 = sumarDosNumeros(13,8);
+console.log(suma2);
+
+
+//Scope -> Alcance de una variable
+//Global -> Variable que se puede acceder desde cualquier parte del codigo
+//Local -> Variable que solo se puede acceder desde un bloque de codigo
+let varGlobal = "Soy global";
+console.log("Global: "+varGlobal);
+
+console.log(juanito);
+
+mostrarVarLocal(); //3
+
+function mostrarVarLocal(){
+    let varLocal = "Soy local";
+    console.log("Soy un console log y este es el mensaje "+varLocal);
+    return varLocal
+}
+let varLocal = mostrarVarLocal(); //1
+console.log(varLocal); //2
+
+//Hoisting -> Comportamiento al momento de ejecutar el codigo
+//Eleva las declaraciones de las funciones al inicio del archivo
+
+//Funciones anonimas
+
+let caja = function (){
+    console.log("Soy anonima");
+}
+
+
+// Callbacks -> Funciones que se pasan como parametros a otras funciones
+
+function funcionsitaConCallback(callback){
+    console.log("Dentro de esta funcion sigue el callback: ");
+    
+    callback();
+}
+
+funcionsitaConCallback(caja);
+funcionsitaConCallback(mostrarVarLocal);
+funcionsitaConCallback(function (){
+    console.log("Soy anonima");
+});
+
+
