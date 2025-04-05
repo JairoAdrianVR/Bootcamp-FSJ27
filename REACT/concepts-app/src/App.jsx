@@ -8,9 +8,8 @@ function App() {
     <>
       <h1>Holiwis</h1>
       {/* Llamo al componente saludo y sus props son nombre y apellido */}
-      <Saludo nombre="Jairo" apellido="Vega"/>
-      <Saludo nombre="Json" apellido="Cardoza"/>
-
+      <Saludo/>
+      
     </>
   )
 }
