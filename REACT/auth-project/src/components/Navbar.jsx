@@ -6,14 +6,7 @@ const Navbar = () => {
             <div className="container-fluid">
                 {/* Logo */}
                 <Link className="navbar-brand" to="/">
-                    <img
-                        src="https://via.placeholder.com/50"
-                        alt="Logo"
-                        width="30"
-                        height="30"
-                        className="d-inline-block align-text-top"
-                    />
-                    MyApp
+                    Auth App
                 </Link>
 
                 {/* Toggle button for mobile view */}
