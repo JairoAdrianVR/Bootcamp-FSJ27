@@ -28,4 +28,4 @@ dist-ssr
 .DS_Store
 
 # Services 
-services/firebase
+src/services/firebase
