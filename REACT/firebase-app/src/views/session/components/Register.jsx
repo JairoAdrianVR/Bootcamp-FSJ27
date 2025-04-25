@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { useForm } from 'react-hook-form'
 import { yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { useNavigate } from 'react-router';
+
 
 const schema = yup.object().shape({
   username: yup.string().required('El nombre de usuario es requerido'),
@@ -12,13 +12,13 @@ const schema = yup.object().shape({
   confirmPassword: yup.string().oneOf([yup.ref('password'), null], 'Las contraseñas deben coincidir').required('La confirmacion de la contraseña es requerida'),
 })
 
-function Register() {
+export function Register() {
 
    const {register, handleSubmit, formState:{errors}} = useForm({
     resolver: yupResolver(schema)
    })
 
-   const navigate = useNavigate();
+
 
   const onSubmitForm = (data) => {
     // Prevent default frena la accion por defecto de refrescar la pagina
@@ -33,7 +33,7 @@ function Register() {
     
     console.log(data);
     
-    navigate('/login');
+  
   }
 
   return (
@@ -47,24 +47,24 @@ function Register() {
                 <div className="mb-3">
                   <label htmlFor="username" className="form-label">Nombre de Usuario</label>
                   <input type="text" className="form-control" id="username" placeholder="Ingresa tu nombre de usuario" {...register("username")}/>
-                  <p>{errors.username && errors.username.message}</p>
+                  <p className='text-danger'>{errors.username && errors.username.message}</p>
                 </div>
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">Correo Electrónico</label>
                   <input type="email" className="form-control" id="email" placeholder="Ingresa tu correo"  {...register("email")}/>
-                  <p>{errors.email && errors.email.message}</p>
+                  <p className='text-danger'>{errors.email && errors.email.message}</p>
                 </div>
                 <div className="mb-3">
                   <label htmlFor="password" className="form-label">Contraseña</label>
                   <input type="password" className="form-control" id="password" placeholder="Ingresa tu contraseña"  {...register("password")}/>
-                  <p>{errors.password && errors.password.message}</p>
+                  <p className='text-danger'>{errors.password && errors.password.message}</p>
                 </div>
                 <div className="mb-3">
                   <label htmlFor="confirmPassword" className="form-label">Confirmar Contraseña</label>
                   <input type="password" className="form-control" id="confirmPassword" placeholder="Confirma tu contraseña"  {...register("confirmPassword")}/>
-                  <p>{errors.confirmPassword && errors.confirmPassword.message}</p>
+                  <p className='text-danger'>{errors.confirmPassword && errors.confirmPassword.message}</p>
                 </div>
-                <button type="submit" className="btn btn-primary w-100">Registrarse</button>
+                <button type="submit" className="btn btn-success w-100">Registrarse</button>
               </form>
               <div className="text-center mt-3">
                 <Link to="/login">¿Ya tienes una cuenta? Inicia sesión</Link>
@@ -77,4 +77,3 @@ function Register() {
   );
 }
 
-export default Register;
