@@ -4,11 +4,14 @@ import {Login} from './views/session/components/Login'; // Import the Login comp
 import {Register} from './views/session/components/Register'; // Import the Register component
 import {Navbar} from './components/Navbar'; // Import the Navbar component
 import { Session } from './views/session/Session';
+import { UserDataProvider } from './context/UserDataContext';
 
 
 function App() {
   return (
     <>
+      <UserDataProvider> 
+
       {/* BrowserRouter lo que hace es activar react router y poder enrutar */}
       <BrowserRouter>
      
@@ -26,6 +29,7 @@ function App() {
       
       
       </BrowserRouter>
+      </UserDataProvider>
     </>
   );
 }

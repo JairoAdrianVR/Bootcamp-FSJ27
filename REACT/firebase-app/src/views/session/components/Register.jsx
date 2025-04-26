@@ -3,6 +3,8 @@ import { Link } from 'react-router';
 import { useForm } from 'react-hook-form'
 import { yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../../../services/firebase/config';
 
 
 const schema = yup.object().shape({
@@ -32,6 +34,25 @@ export function Register() {
     console.log(e.target.confirmPassword.value); */
     
     console.log(data);
+
+createUserWithEmailAndPassword(auth, data.email, data.password)
+  .then((userCredential) => {
+    //Con Then realizamos una peticion asincrona a firebase y es una promesa
+    
+    // Signed up 
+    const user = userCredential.user;
+    console.log(user);
+    
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.error(errorCode);
+    console.error(errorMessage);
+    
+    // ..
+  });
     
   
   }
