@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { useForm } from 'react-hook-form'
 import { yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../../../services/firebase/config';
 
 
@@ -42,7 +42,19 @@ createUserWithEmailAndPassword(auth, data.email, data.password)
     // Signed up 
     const user = userCredential.user;
     console.log(user);
-    
+
+    // Guardar el nombre de usuario en el perfil
+    updateProfile(user, {
+      displayName: data.username,
+      //photoURL: "https://example.com/jane-q-user/profile.jpg"
+    }).then(() => {
+      // Profile updated!
+      console.log("Perfil actualizado");
+    }).catch((error) => {
+      // An error occurred
+      console.error(error);
+    });
+
     // ...
   })
   .catch((error) => {

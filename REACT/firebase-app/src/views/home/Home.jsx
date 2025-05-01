@@ -1,4 +1,5 @@
 import { useUserData } from "../../context/UserDataContext";
+import { Logout } from "../session/components/Logout";
 
 export const Home = () => {
 
@@ -10,7 +11,7 @@ export const Home = () => {
      
   return (
     <div className="container mt-5">
-      <h2 className="text-center"> Hola, {userData ? userData.email : "Invitado" } ! </h2>
+      <h2 className="text-center"> Hola, {userData ? userData.displayName : "Invitado" } ! </h2>
     </div>
   )
 }
