@@ -120,4 +120,38 @@
             return array_shift($this->queue);
         }
     }
+
+    //Lista Enlazada -> SIMPLE
+
+    class Node{ 
+        public $value;
+        public $next;
+
+        public function __construct($data){
+            $this->value = $data;
+            $this->next = null;
+        }
+    }
+
+    class LinkedList{
+         public $head; // Cabeza de la lista
+
+        function __construct(){
+            $this->head = null;
+         }
+
+        function insert($data){
+        $newNode = new Node($data); //Creamos un nuevo nodo 
+        
+        if($this->head === null){ //Si la cabeza de la lista esta vacio, significa que no hay nodo
+            $this->head = $newNode; //Asignamos el nuevo nodo a la cabeza de la lista
+        }
+
+
+    }
+
+    $listita = new LinkedList();
+    $listita->insert(10);
+    $listita->insert(20);
+    print_r($listita);
 ?>
