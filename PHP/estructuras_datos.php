@@ -1,5 +1,5 @@
 <?php 
-
+/*
     //Estructuras de datos
 
     //Arrays
@@ -119,10 +119,10 @@
         function remove(){
             return array_shift($this->queue);
         }
-    }
+    } */
 
     //Lista Enlazada -> SIMPLE
-
+/*
     class Node{ 
         public $value;
         public $next;
@@ -145,13 +145,84 @@
         
         if($this->head === null){ //Si la cabeza de la lista esta vacio, significa que no hay nodo
             $this->head = $newNode; //Asignamos el nuevo nodo a la cabeza de la lista
+        }else{
+            $current = $this->head;
+
+            //Recorremos la lista hasta llegar al final
+            while( $current->next !== null){
+                //Si el siguiente no es null, significa que hay un nodo y nos movemos al siguiente
+               $current =  $current->next;
+
+            }
+            //Cuando el siguiente es null, significa que llegamos al final de la lista y agregamos el nuevo nodo
+            $current->next = $newNode;
         }
 
+        }
 
     }
+*/
+    // Arboles Binarios
 
-    $listita = new LinkedList();
-    $listita->insert(10);
-    $listita->insert(20);
-    print_r($listita);
+    class Node{
+        public $value;
+        public $left;
+        public $right;
+
+        function __construct($data){
+            $this->value = $data;
+            $this->left = null;
+            $this->right = null;
+        }
+    }
+
+    class BinaryTree{
+        public $root; 
+
+        function __construct(){
+            $this->root = null;
+        }
+
+        function insert($data){
+            $newNode = new Node($data);
+
+
+            if($this->root === null){
+                $this->root = $newNode;
+                return $this->root;
+            }
+
+            $current = $this->root;
+
+            while(true){
+
+            
+            if($newNode->value > $current->value){
+                if($current->right === null){
+                   $current->right = $newNode;
+                    return $newNode;
+                } else{
+                    $current = $current->right;
+                }
+            }else{ 
+                if($current->left === null){
+                    $current->left = $newNode;
+                    return $newNode;
+                }else{
+                    $current = $current->left;
+                }
+            }
+            
+            }
+        }
+    }
+
+    $arbolito = new BinaryTree();
+    $arbolito->insert(5);
+    $arbolito->insert(3);
+    $arbolito->insert(2);
+    $arbolito->insert(8);
+    $arbolito->insert(7);
+    $arbolito->insert(4);
+    print_r($arbolito);
 ?>
