@@ -160,8 +160,51 @@
 
         }
 
+
+        //Agregar un metodo para eliminar un dato de la lista
+        function delete($data){
+
+            if($this->head === null){
+                return "La lista esta vacia";
+            }
+
+            if($this->head->value === $data){
+                print("Se encontro el dato \n");
+                $this->head = $this->head->next;
+                return "Se ha eliminado el dato. \n";
+            }
+
+            $current = $this->head;
+
+            while($current->next !== null){
+
+                if($current->next->value === $data){
+                    $current->next = $current->next->next;
+                    print("Se ha eliminado el dato. \n");
+                    return "Se ha eliminado el dato. \n";
+                }
+
+                $current = $current->next;
+
+            }
+            return "Ese dato no existe en la lista. \n";
+            // throw new Exception("Ese dato no existe en la lista. \n") ;
+        }
+
     }
+
+    $listita = new LinkedList();
+    $listita->insert(10);
+    $listita->insert(5);
+    $listita->insert(17);
+    $listita->insert(21);
+    $listita->insert(2);
+    print_r($listita);
+    $listita->delete(17);
+    print_r($listita);
 */
+
+
     // Arboles Binarios
 
     class Node{
@@ -215,6 +258,37 @@
             
             }
         }
+
+        function delete($data){
+            $this->root = $this->deleteNode($data,$this->root);
+        }
+
+        function deleteNode($data, $node){
+
+            if($node === null ){
+                return null;
+            }
+
+            if($data < $node->value){
+                $node->left = $this->deleteNode($data, $node->left);
+            }else if($data > $node->value){
+                $node->right = $this->deleteNode($data, $node->right);
+            }else{
+
+                if($node->left === null){
+                    return $node->right;
+                }elseif($node->right === null){
+                    return $node->left;
+                }
+
+               $node->right = $this->deleteNode($node->value, $node->right);     
+            }
+
+
+            return $node;
+        }
+
+
     }
 
     $arbolito = new BinaryTree();
@@ -224,5 +298,18 @@
     $arbolito->insert(8);
     $arbolito->insert(7);
     $arbolito->insert(4);
+    $arbolito->delete(4);
+
     print_r($arbolito);
+
+
+    //  Recorrer la lista enlazada e imprimir todos sus valores
+
+    //  Recorrer el arbol binario e imprimir todos sus valores EN PREORDER 
+
+    //  Contar los nodos de la lista enlazada
+
+    // Cambiar el valor de un nodo (Lista enlazada y en el arbol binario)
+
+
 ?>
