@@ -34,18 +34,46 @@
         $n = count($arr);
 
         for($i = 0; $i < $n; $i++){
-            print("ESTE ES EL BUCLE I \n");
+            //print("ESTE ES EL BUCLE I \n");
             for($j = 0; $j+1 < $n; $j++){
+               // print("ESTE ES EL BUCLE J Y EL ARRAY ESTA ASI: \n");
+                //print_r($arr);
 
-            print("ESTE ES EL BUCLE J  y valgo {$arr[$j]} \n");
-            print("ESTE ES EL BUCLE J EN SU POSICION SIGUIENTE y valgo {$arr[$j+1]} \n");
+            if($arr[$j] >$arr[$j+1]){
+                $temp = $arr[$j];
+                $arr[$j] =  $arr[$j+1];
+                $arr[$j+1] = $temp;
+            }
             }
         }
-
+        return $arr;
     }
 
 
     $arraycito = [8,10,7,5,6];
-    BubbleSort($arraycito);
+    print_r(BubbleSort($arraycito));
 
+
+
+    // Algoritmo de ordenamiento tipo Insersion -> InsertionSort
+    function insertionSort($arr){
+        if(count($arr) <= 1 ) return "Necesito 2 datos para ordenar con InsertionSort";
+
+
+        for($i = 1 ; $i < count($arr); $i++){
+            $aux = $arr[$i];
+
+            $j = $i -1;
+
+            while( $j >= 0 && $arr[$j] > $aux ){
+                $arr[$j+1] = $arr[$j];
+                $j--;
+            }
+            $arr[$j+1] = $aux;
+        }
+        return $arr;
+    }
+
+    $arrayzote = [6,5,3,1,8,7,2,4];
+    print_r(insertionSort($arrayzote));
 ?>
