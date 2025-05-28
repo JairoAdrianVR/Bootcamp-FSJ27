@@ -76,4 +76,58 @@
 
     $arrayzote = [6,5,3,1,8,7,2,4];
     print_r(insertionSort($arrayzote));
+
+
+
+    //Algoritmo de ordenamiento tipo Mezclar(fusionar) -> MergeSort
+    function mergeSort($arr){
+
+        // Si el array tiene un solo elemento no hay nada que ordenar
+        if(count($arr) <= 1) return $arr;
+
+        //Obtener cuanto es la mitad
+        // Math.floor()
+        $mid = floor(count($arr) / 2); 
+
+        //Dividir el array en dos mitades
+        $left = array_slice($arr,0, $mid);
+        $right = array_slice($arr,$mid);
+
+        //Aplicamos recursividad 
+        $left = mergeSort($left);
+        $right = mergeSort($right);
+
+        print_r($left);
+        print_r($right);
+
+        //Fusionamos los dos arrays
+        return merge($left,$right);
+    }
+
+    function merge($left, $right){
+        $result = [];
+        while(count($left) > 0 && count($right) > 0){
+            if($left[0] <= $right[0]){
+                //$result[] = array_shift($left);
+                array_push($result,array_shift($left));
+            }else {
+                //$result[] = array_shift($right);
+                array_push($result,array_shift($right));
+            }
+        }
+        while(count($left) > 0){
+            //$result[] = array_shift($left);
+            array_push($result,array_shift($left));
+        }
+        while(count($right) > 0){
+            array_push($result,array_shift($right));
+            //$result[] = array_shift($right);
+        }
+
+        return $result;
+    }
+
+    $arrayinho = [6,5,3,1,8,7,2,4];
+    mergeSort($arrayinho);
+
 ?>
