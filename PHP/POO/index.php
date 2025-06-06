@@ -15,10 +15,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practica de variables</title>
 </head>
-<body>
+<body style="background-color: gray;">
     <h1> Practica de variables superglobales</h1>
 
-    <form action="/POO/procesamientoDatos.php" method="POST">
+    <form action="procesamientoDatos.php"  method="POST">
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" id="nombre" required>
         
