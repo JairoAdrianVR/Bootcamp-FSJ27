@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name'); //CREA UNA COLUMNA VARCHAR CON EL NOMBRE NAME
             $table->float('price'); //CREA UNA COLUMNA FLOAT CON EL NOMBRE PRICE
             $table->integer('stock'); //CREA UNA COLUMNA INTEGER CON EL NOMBRE STOCK
-            $table->timestamps(); // CREATED_AT y UPDATE_AT 2COLUMNAS 
+            $table->timestamps(); // CREATED_AT y UPDATED_AT 2COLUMNAS 
         });
     }
 
