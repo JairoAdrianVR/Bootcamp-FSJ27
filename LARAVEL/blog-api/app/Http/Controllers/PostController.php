@@ -82,16 +82,58 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, string $id)
     {
-        //
+        try{
+        // Buscamos el post por su ID
+        $post = Post::findOrFail($id);
+
+
+        //Actualizamos el post
+        //Primera manera
+        $post->update([
+            'title' => $request->title,
+            'content' => $request->content
+        ]);
+
+        //Segunda manera
+        //$post->update($request->all());
+
+        return response()->json([
+            'message' => 'Post Updated Successfully',
+            'data' => $post
+        ]);
+
+        } catch(Exception $error){
+            return response()->json([
+                'error' => $error->getMessage()
+            ]);
+        }
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $post)
+    public function destroy(Request $request, string $id)
     {
-        //
+        //Buscamos el post por su ID
+        $post = Post::findOrFail($id);
+
+        //Validar si el usuario autenticado es el dueño del post
+        if ($post->user_id !== $request->user()->id) {
+            return response()->json([
+                'error' => 'Unauthorized'
+            ], 403);
+        }
+
+        //Eliminamos el post
+        $post->delete();
+
+        return response()->json([
+            'message' => 'Post Deleted Successfully'
+        ]);
     }
+
 }
+

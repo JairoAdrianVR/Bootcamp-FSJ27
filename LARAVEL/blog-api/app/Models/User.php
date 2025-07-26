@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Post;
+use App\Models\Comment;
 
 class User extends Authenticatable
 {
@@ -28,6 +29,11 @@ class User extends Authenticatable
     //Cada usuario tiene muchos posts
     public function posts(){
         return $this->hasMany(Post::class);
+    }
+
+    // Cada usuario puede tener muchos comentarios
+    public function comments(){
+        return $this->hasMany(Comment::class);
     }
 
     /**
